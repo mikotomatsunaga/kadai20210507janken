@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../じゃんけん課題1/css/sample.css">
+  <title>ゴルファーJくん</title>
+</head>
+
+<body>
+  <header>
+    <h1>ゴルファーJくん</h1>
+  </header>
+  
+    <!-- 第2打 -->
+  <main>
+    <div id="com_hand1">ナイスショットでフェアウェイにボールを運ぼう！<br>プレッシャーのかかる場面、さあどう打つか？</div> 
+    <div id="result1">注目のティーショット、あなたはどう打つ？</div>
+      <img id="pic" src="../じゃんけん課題1/img/image1.jpeg"/>
+      <ul>
+      <li id ="gu_btn" >左から攻める</li>
+      <li id ="cho_btn">真ん中を攻める</li>
+      <li id ="par_btn">右から攻める</li>
+      </ul>
+    <!-- 第2打 -->
+  </main>
+
+  <footer>Copyright © 2021 GolferJ All Rights Reserved.</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+
+    //マウスオーバー時の処理を記述
+    $('#gu_btn').on('mouseover', function () {
+    var elm = document.getElementById("pic");
+    elm.src = "../じゃんけん課題1/img/fade.png";
+    console.log('mouseover');
+    });
+    
+    $('#cho_btn').on('mouseover', function () {
+    var elm = document.getElementById("pic");
+    elm.src = "../じゃんけん課題1/img/straight.png";
+    console.log('mouseover');
+    });
+
+    $('#par_btn').on('mouseover', function () {
+    var elm = document.getElementById("pic");
+    elm.src = "../じゃんけん課題1/img/drow.png";
+    console.log('mouseover');
+    });
+
+    //マウスアウト時の処理を記述
+    $('#gu_btn').on('mouseout', function () {
+    var elm = document.getElementById("pic");
+    elm.src = "../じゃんけん課題1/img/image1.jpeg";
+    console.log('mouseout');
+    });
+
+    $('#cho_btn').on('mouseout', function () {
+    var elm = document.getElementById("pic");
+    elm.src = "../じゃんけん課題1/img/image1.jpeg";
+    console.log('mouseout');
+    });
+
+    $('#par_btn').on('mouseout', function () {
+    var elm = document.getElementById("pic");
+    elm.src = "../じゃんけん課題1/img/image1.jpeg";
+    console.log('mouseout');
+    });
+    
+    //第2打はここから
+
+    $('#gu_btn').on('click', function () {
+      
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+      console.log(randomNumber);
+
+      if(randomNumber == 0) {
+        $('#com_hand1').text('ボールは大きく曲がって左へ');
+        $('#result1').text('残念！距離のあるラフに入りました');
+        $("img").attr("src","../じゃんけん課題1/img/rough.jpeg");
+      } else if (randomNumber == 1) {
+        $('#com_hand1').text('ボールは大きく曲がって左へ');
+        $('#result1').text('残念！曲がり切れずに突き抜けてOB！');
+        $("img").attr("src","../じゃんけん課題1/img/ob.jpeg");
+      } else if (randomNumber == 2) {
+        $('#com_hand1').text('ボールは大きく曲がって左へ');
+        $('#result1').text('残念！大きく曲がり過ぎてOB！');
+        $("img").attr("src","../じゃんけん課題1/img/ob.jpeg");
+      } 
+    });
+
+    $('#cho_btn').on('click', function () {
+      
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+      console.log(randomNumber);
+
+      if(randomNumber == 0) {
+        $('#com_hand1').text('ものすごいインパクト音だ！');
+        $('#result1').text('ジャストミート！フェアウェイをキープ！');
+        $("img").attr("src","../じゃんけん課題1/img/firway.jpeg");
+      } else if (randomNumber == 1) {
+        $('#com_hand1').text('ものすごいインパクト音だ！');
+        $('#result1').text('おっとこれは力み過ぎた！残念！突き抜けてOB！');
+        $("img").attr("src","../じゃんけん課題1/img/ob.jpeg");
+      } else if (randomNumber == 2) {
+        $('#com_hand').text('ものすごいインパクト音だ！');
+        $('#result1').text('残念！ボールではなく地球を叩いてしまった！痛恨のミス！');
+        $("img").attr("src","../じゃんけん課題1/img/dafuri.jpeg");
+      } 
+    });
+
+    $('#par_btn').on('click', function () {
+      
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+      console.log(randomNumber);
+
+      if(randomNumber == 0) {
+        $('#com_hand1').text('ボールは大きく曲がって右へ');
+        $('#result1').text('残念！距離のあるバンカーに入りました！');
+        $("img").attr("src","../じゃんけん課題1/img/bunker.jpeg");
+      } else if (randomNumber == 1) {
+        $('#com_hand1').text('ボールは大きく曲がって右へ');
+        $('#result1').text('残念！思ったより曲がり切れない！突き抜けてOB！');
+        $("img").attr("src","../じゃんけん課題1/img/ob.jpeg");
+      } else if (randomNumber == 2) {
+        $('#com_hand1').text('ボールは大きく曲がって右へ');
+        $('#result1').text('しまった！大きく曲がり過ぎた！残念！OB！');
+        $("img").attr("src","../じゃんけん課題1/img/ob.jpeg");
+      } 
+    });
+
+    //第2打はここまで
+
+    // //第3打はここから
+
+    // //第3打ラフはここから
+    // $('#gu_btn_r').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('力みすぎたてピンを大きくオーバー！残念！ゲームオーバー！');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('グリップが滑って大ダフり！残念！ゲームオーバー');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('思い通りにクラブを操れない！OB！ゲームオーバー！');
+    //   } 
+    // });
+
+    // $('#cho_btn_r').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('力みすぎたてピンを大きくオーバー！残念！ゲームオーバー！');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('グリップが滑って大ダフり！残念！ゲームオーバー');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('思い通りにクラブを操れない！OB！ゲームオーバー！');
+    //   } 
+    // });
+
+    // $('#par_btn_r').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('力みすぎたてピンを大きくオーバー！残念！ゲームオーバー！');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('グリップが滑って大ダフり！残念！ゲームオーバー');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand2').text('ラフからのショットは難しいが、結果はどうだ？');
+    //     $('#result2').text('思い通りにクラブを操れない！OB！ゲームオーバー！');
+    //   } 
+    // });
+    // //第3打ラフはここまで
+
+    // //第3打フェアウェイはここから
+
+    // $('#gu_btn_f').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('向かい風を意識し過ぎたのか？パンチが強く入って大オーバー、OBだ。');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('残り距離の計算を間違えたか？グリーンにのらずにOBだ。');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('スイング中に観客の女性に目がいってしまって痛恨のダフりミス。ゲームオーバー。');
+    //   } 
+    // });
+
+    // $('#cho_btn_f').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('向かい風を意識し過ぎたのか？パンチが強く入って大オーバー、OBだ。');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('残り距離の計算を間違えたか？グリーンにのらずにOBだ。');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('スイング中に観客の女性に目がいってしまって痛恨のダフりミス。ゲームオーバー。');
+    //   } 
+    // });
+
+    // $('#par_btn_f').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('向かい風を意識し過ぎたのか？パンチが強く入って大オーバー、OBだ。');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('残り距離の計算を間違えたか？グリーンにのらずにOBだ。');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand3').text('フェアウェイの絶好のポジションからのショット、結果はどうだ？');
+    //     $('#result3').text('スイング中に観客の女性に目がいってしまって痛恨のダフりミス。ゲームオーバー。');
+    //   } 
+    // });
+    // //第3打フェアウェイはここまで
+
+    // // //第3打バンカーはここから
+    // $('#gu_btn_b').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('おっと、緊張してしまったか？ここで大ダフリは痛い！残念！ゲームオーバー！');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('方向は良かったがピンによらず！飛びすぎてOBだ！残念！');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('手元は滑ったがピンの横1mにまさかのナイスオン！ボールがカップに吸い寄せられてホールイン！ゲームクリア！');
+    //   } 
+    // });
+
+    // $('#cho_btn_b').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('おっと、緊張してしまったか？ここで大ダフリは痛い！残念！ゲームオーバー！');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('方向は良かったがピンによらず！飛びすぎてOBだ！残念！');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('手元は滑ったがピンの横1mにまさかのナイスオン！ボールがカップに吸い寄せられてホールイン！ゲームクリア！');
+    //   } 
+    // });
+
+    // $('#par_btn_b').on('click', function () {
+      
+    //   const min = 0;
+    //   const max = 2;
+    //   const randomNumber = Math.floor(Math.random() * (max -　min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   if(randomNumber == 0) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('おっと、緊張してしまったか？ここで大ダフリは痛い！残念！ゲームオーバー！');
+    //   } else if (randomNumber == 1) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('方向は良かったがピンによらず！飛びすぎてOBだ！残念！');
+    //   } else if (randomNumber == 2) {
+    //     $('#com_hand4').text('バンカーからのショットは難しいが、結果はどうだ？');
+    //     $('#result4').text('手元は滑ったがピンの横1mにまさかのナイスオン！ボールがカップに吸い寄せられてホールイン！ゲームクリア！');
+    //   } 
+    // });
+    // // //第3打バンカーはここまで
+    // // //第3打はここまで
+
+
+  </script>
+
+</body>
+
+</html>
+
